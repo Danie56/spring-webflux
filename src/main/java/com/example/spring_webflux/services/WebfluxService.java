@@ -57,11 +57,26 @@ public class WebfluxService {
                         return null;
                     }
 
-
                 })
                 .filter(obj -> true)
                 .map(n -> n * 2)
                 .switchIfEmpty(Flux.just(-1));
+
+    }
+    public Mono<@NonNull String> thenExercise(){
+        Mono<String> greetings = Mono.just("Hola Daniel");
+        return  greetings.then(Mono.just("Chao Daniel"));
+
+
+
+    }
+    public Mono<@NonNull Void> whenExercise(){
+        Mono<String> saveOrder = Mono.just("Pedido guardado");
+        Mono<String> sendInvoice = Mono.just("Factura enviada");
+        Mono<String> updateStock = Mono.just("Stock actualizado");
+        return Mono.when(saveOrder,sendInvoice,updateStock);
+
+
 
     }
 

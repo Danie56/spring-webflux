@@ -44,9 +44,19 @@ public class WebfluxController {
 //        return ResponseEntity.ok(webfluxService.monoSwitchIfEmpty());
 //
 //    }
+//    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+//    public ResponseEntity<Flux<Integer>> combineExercise(){
+//        return ResponseEntity.ok(webfluxService.combineExercise());
+//
+//    }
+//    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+//    public ResponseEntity<Mono<String>> thenExercise(){
+//        return ResponseEntity.ok(webfluxService.thenExercise());
+//
+//    }
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public ResponseEntity<Flux<Integer>> combineExercise(){
-        return ResponseEntity.ok(webfluxService.combineExercise());
+    public ResponseEntity<Mono<Void>> whenExercise(){
+        return ResponseEntity.ok(webfluxService.whenExercise());
 
     }
 }
